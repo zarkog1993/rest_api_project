@@ -1,0 +1,59 @@
+services:
+  drupal:
+    image: drupal:10
+    ports:
+      - "8081:80"
+    volumes:
+      # Drupal recommended project drži docroot u ./drupal/web
+      - ./drupal/web:/var/www/html
+      # Vendor je u ../vendor relativno na web, mapiramo ga u /var/www/vendor
+      - ./drupal/vendor:/var/www/vendor
+    depends_on:
+      - redis
+      - db
+    environment:
+      DRUPAL_DB_HOST: db
+      DRUPAL_DB_NAME: drupal
+      DRUPAL_DB_USER: drupal
+      DRUPAL_DB_PASSWORD: drupal
+
+  symfony:
+    image: webdevops/php-nginx-dev:8.2
+    working_dir: /app
+    volumes:
+      - ./symfony:/app
+    environment:
+      WEB_DOCUMENT_ROOT: /app/public
+      DATABASE_URL: mysql://symfony:symfony@db:3306/symfony
+    ports:
+      - "8082:80"
+    depends_on:
+      - db
+      - composer
+
+  composer:
+    image: composer:2
+    working_dir: /app
+    volumes:
+      - ./symfony:/app
+    entrypoint: ["composer"]
+
+  redis:
+    image: redis:7
+    ports:
+      - "6379:6379"
+
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: drupal
+      MYSQL_USER: drupal
+      MYSQL_PASSWORD: drupal
+    volumes:
+      - db_data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+
+volumes:
+  db_data:
