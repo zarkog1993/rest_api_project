@@ -13,3 +13,28 @@ symfony/public/bundles/
 symfony/var/
 symfony/vendor/
 ###< symfony/framework-bundle ###
+# Drupal core (managed by Composer)
+drupal/web/core/
+drupal/vendor/
+
+# Contributed modules & themes
+drupal/web/modules/contrib/
+drupal/web/themes/contrib/
+
+# Files & settings
+drupal/web/sites/*/files/
+drupal/web/sites/*/settings.php
+drupal/web/sites/*/services.yml
+
+# Build artifacts
+drupal/web/.htaccess
+drupal/web/yarn.lock
+# Drupal core i vendor
+drupal/web/themes/starterkit_theme/
+drupal/web/themes/stable9/
+
+# Build artifacts / konfiguracija koja se menja
+drupal/web/sites/*/default.settings.php
+drupal/web/sites/*/default.services.yml
+drupal/web/sites/development.services.yml
+drupal/web/web.config
