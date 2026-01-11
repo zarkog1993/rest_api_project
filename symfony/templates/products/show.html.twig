@@ -7,21 +7,23 @@
     <table>
         <thead>
         <tr>
-            <th>Id</th>
-            <th>Name</th>
-            <th>Price</th>
+            <th>Title</th>
+            <th>Content</th>
+            <th>Image</th>
         </tr>
         </thead>
         <tbody>
         <tr>
-            <td>
-            </td>
-            {% for prod in product %}
+            {% for prod in products %}
+                <td>
+                    <p>{{ prod.title }}</p>
+                    <a href="{{ prod.field_product_link }}">Read More</a>
+                </td>
                 <td>
                     {{ prod.body|raw }}
                 </td>
                 <td>
-                    <img src="{{ prod.field_image }}" alt="">
+                    <img src="{{ imageUrl }}{{ prod.field_product_image }}" alt="test">
                 </td>
             {% endfor %}
         </tr>

@@ -849,15 +849,13 @@ $settings['migrate_node_migrate_type_classic'] = FALSE;
 # }
 
 $settings['config_sync_directory'] = 'sites/default/files/config_fr0ARk9bQU2aJoBgps720a3gmS7ulqLLW9A_NCxn_VrOs6QN7mMl8FrF1iP7W_zEngk76I1d7Q/sync';
-$databases['default']['default'] = array (
+$databases['default']['default'] = [
   'database' => 'drupal',
   'username' => 'drupal',
   'password' => 'drupal',
-  'prefix' => '',
   'host' => 'db',
   'port' => '3306',
-  'isolation_level' => 'READ COMMITTED',
   'driver' => 'mysql',
-  'namespace' => 'Drupal\\mysql\\Driver\\Database\\mysql',
-  'autoload' => 'core/modules/mysql/src/Driver/Database/mysql/',
-);
+  'prefix' => '',
+  'collation' => 'utf8mb4_general_ci',
+];
