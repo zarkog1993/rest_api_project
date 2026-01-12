@@ -848,7 +848,7 @@ $settings['migrate_node_migrate_type_classic'] = FALSE;
 #   include $app_root . '/' . $site_path . '/settings.local.php';
 # }
 
-$settings['config_sync_directory'] = 'sites/default/files/config_fr0ARk9bQU2aJoBgps720a3gmS7ulqLLW9A_NCxn_VrOs6QN7mMl8FrF1iP7W_zEngk76I1d7Q/sync';
+$settings['config_sync_directory'] = 'sites/default/files/config/sync';
 $databases['default']['default'] = [
   'database' => 'drupal',
   'username' => 'drupal',

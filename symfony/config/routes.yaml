@@ -9,3 +9,9 @@
 
 controllers:
     resource: routing.controllers
+
+products:
+    path: /{_locale}/products
+    controller: App\Controller\ProductController::index
+    requirements:
+        _locale: en|sr

@@ -4,10 +4,7 @@ export default async function Page() {
     return (
         <ul>
             {posts.map((post: any) => (
-                <li key={post.id}>
-                    {post.title}
-                </li>
-                <li key={post.id}>{post.body}</li>
+                <li key={post.id}>{post.title}</li>
             ))}
         </ul>
     )

@@ -3,21 +3,19 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface;
-use Symfony\Contracts\HttpClient\HttpClientInterface;
+use Symfony\Component\HttpFoundation\Response;
 
 final class ProductsController extends AbstractController
 {
-    /**
-     * @throws TransportExceptionInterface
-     */
-    #[Route('/products', name: 'app_products')]
-    public function index(HttpClientInterface $client, Request $request)
-    {
+    #[Route('/{_locale}/products', name: 'app_products', requirements: ['_locale' => 'en|sr'])]
+    public function index(HttpClientInterface $client, Request $request): JsonResponse {
         $drupalHost = $this->getParameter('app.drupal_host');
-        $response = $client->request('GET', $drupalHost . '/api/products', [
+        $locale = $request->getLocale();
+        $response = $client->request('GET', $drupalHost . '/' . $locale . '/api/products', [
             'headers' => [
                 'Accept' => 'application/json',
             ],
