@@ -1,6 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 14, "column": 0}, "map": {"version":3,"sources":["file:///home/zgavric/Projects/local/rest_api/frontend/app/page.tsx"],"sourcesContent":["export default async function Page() {\n    const data = await fetch('http://localhost:8082/products')\n    const posts = await data.json()\n    return (\n        <ul>\n            {posts.map((post: any) => (\n                <li key={post.id}>{post.title}</li>\n            ))}\n        </ul>\n    )\n}\n"],"names":[],"mappings":";;;;;;AAAe,eAAe;IAC1B,MAAM,OAAO,MAAM,MAAM;IACzB,MAAM,QAAQ,MAAM,KAAK,IAAI;IAC7B,qBACI,8WAAC;kBACI,MAAM,GAAG,CAAC,CAAC,qBACR,8WAAC;0BAAkB,KAAK,KAAK;eAApB,KAAK,EAAE;;;;;;;;;;AAIhC"}}]
-}
