@@ -1,12 +1,23 @@
 services:
+    frontend:
+        image: node:20-slim
+        working_dir: /app
+        volumes:
+            - ./frontend:/app
+        ports:
+            - "5173:5173"
+        environment:
+            - VITE_API_URL=http://localhost:8082
+        tty: true
+        # Komanda instalira zavisnosti i pokreće Vite dev server
+        command: sh -c "npm install && npm run dev -- --host"
+
     drupal:
         image: drupal:10
         ports:
             - "8081:80"
         volumes:
-            # Drupal recommended project drži docroot u ./drupal/web
             - ./drupal/web:/var/www/html
-            # Vendor je u ../vendor relativno na web, mapiramo ga u /var/www/vendor
             - ./drupal/vendor:/var/www/vendor
         depends_on:
             - redis
@@ -40,8 +51,9 @@ services:
 
     redis:
         image: redis:7
+        # Izmenjen port da izbegneš konflikt (ili obriši ports skroz)
         ports:
-            - "6379:6379"
+            - "6380:6379"
 
     db:
         image: mysql:8.0
