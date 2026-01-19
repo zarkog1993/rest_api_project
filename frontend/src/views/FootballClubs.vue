@@ -1,7 +1,7 @@
 <script setup>
-import {useApiData} from "@/composable/requestApi.js";
+import { useApiData } from "@/composable/requestApi.js";
 
-const {nodes, loading} = useApiData('/football/club');
+const {nodes, loading} = useApiData('football/club');
 </script>
 
 <template>
@@ -15,10 +15,9 @@ const {nodes, loading} = useApiData('/football/club');
             class="flex justify-center items-center bg-gray-100"
         >
 
-            <div class="p-6 text-center">
-                <h5 class="text-2xl font-semibold">
-                    {{ node.title }}
-                </h5>
+            <div class="card bg-base-100 w-96 shadow-sm">
+                <h2 class="card-title" v-html="node.title"></h2>
+                <div v-html="node.body"></div>
             </div>
         </div>
     </div>

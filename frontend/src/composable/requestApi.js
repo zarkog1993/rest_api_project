@@ -9,7 +9,7 @@ export function useApiData(endpoint) {
     const route = useRoute()
     const locale = computed(() => route.params.locale || 'en')
 
-    async function fetchClubs(lang) {
+    async function fetchData(lang) {
         loading.value = true
         try {
             const response = await axios.get(
@@ -21,7 +21,7 @@ export function useApiData(endpoint) {
         }
     }
 
-    watch(locale, fetchClubs, { immediate: true })
+    watch(locale, fetchData, { immediate: true });
 
     return {
         nodes,
