@@ -15,3 +15,9 @@ products:
     controller: App\Controller\ProductController::index
     requirements:
         _locale: en|sr
+
+footballClub:
+    path: /football/club
+    controller: App\Controller\FootballClubController::index
+    requirements:
+        _locale: en|sr

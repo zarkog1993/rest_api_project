@@ -10,13 +10,12 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Attribute\Route;
 
-final class ProductsController extends AbstractController
+final class FootballClubController extends AbstractController
 {
-    #[Route('/{_locale}/products', name: 'app_products', requirements: ['_locale' => 'en|sr'])]
+    #[Route('/{_locale}/football/club', name: 'app_football_club', requirements: ['_locale' => 'en|sr'])]
     public function index(DrupalApiClient $drupalApiClient, Request $request): JsonResponse
     {
-        $products = $drupalApiClient->getDrupalContent($request->getLocale(), 'products');
-
-        return $this->json($products);
+        $footballClubs = $drupalApiClient->getDrupalContent($request->getLocale(), 'football-clubs');
+        return $this->json($footballClubs);
     }
 }

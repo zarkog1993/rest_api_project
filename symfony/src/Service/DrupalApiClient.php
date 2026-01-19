@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Service;
 
-use Symfony\Component\HttpClient\HttpClient;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 class DrupalApiClient {
@@ -16,7 +15,7 @@ class DrupalApiClient {
         $this->drupalHost = rtrim($drupalHost, '/');
     }
 
-    public function getProducts(string $local, $path): array
+    public function getDrupalContent(string $local, $path): array
     {
         try {
             return $this->fetch($local, $path);
