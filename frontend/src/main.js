@@ -4,14 +4,12 @@ import { createApp } from 'vue'
 import { createRouter, createWebHistory } from 'vue-router'
 
 import App from './App.vue'
-import HelloWorld from "@/components/HelloWorld.vue";
-import WelcomeItem from "@/components/WelcomeItem.vue";
 import Products from "@/views/Products.vue";
+import FootballClubs from "@/views/FootballClubs.vue";
 
 const routes = [
-    { path: '/:locale(en|sr)', component: Products },
-    { path: '/hello-world', component: HelloWorld },
-    { path: '/welcome-item', component: WelcomeItem },
+    { path: '/:locale(en|sr)/prod', name: 'products', component: Products },
+    { path: '/:locale(en|sr)/football/clubs', name: 'football_clubs', component: FootballClubs },
 ]
 
 const router = createRouter({
