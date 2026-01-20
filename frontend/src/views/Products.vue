@@ -1,5 +1,5 @@
 <script setup>
-import {useApiData} from "@/composable/requestApi.js";
+import { useApiData } from "@/composable/requestApi.js";
 
 const {nodes, loading} = useApiData('products');
 </script>

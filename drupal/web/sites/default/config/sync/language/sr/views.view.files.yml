@@ -1,0 +1,42 @@
+label: Фајлови
+description: 'Нађи и управљај датотекама.'
+display:
+  default:
+    display_title: Подразумевано
+    display_options:
+      title: Фајлови
+      fields:
+        filename:
+          label: Име
+        filemime:
+          label: 'MIME тип'
+        filesize:
+          label: Величина
+        status:
+          label: Статус
+        created:
+          label: 'Датум постављања'
+        changed:
+          label: 'Датум измене'
+        operations:
+          label: Операције
+      exposed_form:
+        options:
+          submit_button: Филтрирај
+          exposed_sorts_label: 'Сортирај по'
+      filters:
+        filemime:
+          expose:
+            label: 'MIME тип'
+        status:
+          expose:
+            label: Статус
+  page_1:
+    display_options:
+      menu:
+        title: Фајлови
+  page_2:
+    display_options:
+      fields:
+        type:
+          label: 'Тип ентитета'

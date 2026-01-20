@@ -1,0 +1,24 @@
+uuid: 0002ec12-9bb3-4405-85c3-ea4ecf0794e8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.football_clubs
+  module:
+    - text
+id: node.football_clubs.body
+field_name: body
+entity_type: node
+bundle: football_clubs
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+  allowed_formats: {  }
+field_type: text_with_summary

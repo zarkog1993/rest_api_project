@@ -8,7 +8,7 @@ import Products from "@/views/Products.vue";
 import FootballClubs from "@/views/FootballClubs.vue";
 
 const routes = [
-    { path: '/:locale(en|sr)/prod', name: 'products', component: Products },
+    { path: '/:locale(en|sr)/product', name: 'products', component: Products },
     { path: '/:locale(en|sr)/football/clubs', name: 'football_clubs', component: FootballClubs },
 ]
 

@@ -1,0 +1,9 @@
+uuid: 6e8f8530-20d4-4cba-afa3-5147613b2683
+langcode: en
+status: true
+dependencies: {  }
+id: sr
+label: Serbian
+direction: ltr
+weight: 1
+locked: false

@@ -1,0 +1,38 @@
+uuid: 5b71df8a-67eb-4855-bc4e-874bf13e36b6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.football_clubs.body
+    - field.field.node.football_clubs.field_title
+    - node.type.football_clubs
+  module:
+    - text
+    - user
+id: node.football_clubs.default
+targetEntityType: node
+bundle: football_clubs
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true
