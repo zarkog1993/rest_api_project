@@ -1,6 +1,6 @@
 import { ref, watch, computed } from 'vue'
 import { useRoute } from 'vue-router'
-import axios from 'axios'
+import { api } from '@/lib/axios.ts'
 
 export function useApiData(endpoint) {
     const nodes = ref([])
@@ -12,9 +12,7 @@ export function useApiData(endpoint) {
     async function fetchData(lang) {
         loading.value = true
         try {
-            const response = await axios.get(
-                `http://localhost:8082/${locale.value}/${endpoint}`
-            )
+            const response = await api.get(`/${locale.value}/${endpoint}`)
             nodes.value = response.data
         } finally {
             loading.value = false
